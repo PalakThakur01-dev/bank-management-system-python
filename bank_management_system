@@ -1,0 +1,51 @@
+# BANK MANAGEMENT SYSTEM !!
+accounts = {}
+
+while True:
+    print("\n1.CREATE ACCOUNT")
+    print("2.VIEW ACCOUNT DETAILS")
+    print("3.DEPOSIT MONEY")
+    print("4.WITHDRAW MONEY")
+    print("5.CHECK BALANCE")
+    print("6.DELETE ACCOUNT")
+    print("7.EXIT")
+
+    cus_choice = int(input("enter you choice(1/2/3/4/5/6): "))
+    if cus_choice == 1:
+        cus_id = int(input("enter your id: "))
+        cus_name = input("enter your name: ")
+        cus_bal = int(input("enter your current balance: "))
+
+        accounts[cus_id]={
+            "name":cus_name,
+            "balance":cus_bal
+        }
+
+    elif cus_choice == 2:
+        print("CUSTOMER NAME: ",accounts[cus_id]["name"])
+        print("CUSTOMER BALANCE: ",accounts[cus_id]["balance"])
+
+    elif cus_choice == 3:
+        depo_mny = int(input("enter the deposit money: "))
+        accounts[cus_id]["balance"] += depo_mny
+        print("after deposit your current balance: ",accounts[cus_id]["balance"])
+
+    elif cus_choice == 4:
+        withdraw_mny = int(input("enter the withdraw money: "))
+        accounts[cus_id]["balance"]-= withdraw_mny
+        print("your remaining bank balance: ",accounts[cus_id]["balance"])
+
+    elif cus_choice == 5:
+        print("your bank balance is: ",accounts[cus_id]["balance"])
+
+    elif cus_choice == 6:
+        del_acc = int(input('enter you customer_id: '))
+        if del_acc in accounts:
+            del(accounts[del_acc])
+            print("account is deleted successfully!!")
+        else:
+            print("account not found")
+    
+    elif cus_choice == 7:
+          break
+
